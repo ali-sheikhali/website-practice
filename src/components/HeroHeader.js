@@ -9,7 +9,7 @@ function HeroHeader() {
         ">
           <h1 className="font-bold text-xl md:text-3xl">Hi! Welcome to my page</h1>
           <p className="text-xl">I 'm Ali</p>
-          <p>I 'm junior Front-End Developer</p>
+          <p>I 'm Front-End Developer</p>
         </div>
         <figure className="w-full md:w-10/12 mx-auto md:flex md:justify-end">
           <img

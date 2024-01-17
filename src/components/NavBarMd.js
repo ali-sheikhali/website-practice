@@ -5,13 +5,13 @@ function NavBarMd() {
   return (
     <div>
         <div className='text-white flex space-x-5'>
-            <Link to="/about-me">
+            <Link className='hover:text-yellow-500' to="/about-me">
                 about me
             </Link>
-            <Link to="/my-project">
+            <Link className='hover:text-yellow-500' to="/my-project">
                my project
             </Link>
-            <Link to="/services">
+            <Link className='hover:text-yellow-500' to="/services">
                services
             </Link>
         </div>
