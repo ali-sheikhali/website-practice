@@ -1,26 +1,36 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from "react";
+import { Link } from "react-router-dom";
 import { FaBars } from "react-icons/fa6";
-import { useState } from 'react';
-import { IoClose } from "react-icons/io5";
-
+import { Menu } from "@headlessui/react";
+import NavBarMd from "./NavBarMd";
 function Navbar() {
-  const [bar, setBar] = useState(false)
-  const barHandleClick = ()=>{
-    setBar(!bar)
-  }
+
   return (
-    <div className='bg-black text-white flex justify-around py-3'>
+    <div className="bg-black text-white flex justify-around py-3">
       <div>
         <Link to="/">
           <p>Home</p>
         </Link>
       </div>
-      <div onClick={barHandleClick} className='mt-1 cursor-pointer font-bold text-xl'>
-         {bar ? <IoClose/> :  <FaBars />} 
+      <div className="mt-1 cursor-pointer font-bold text-xl md:hidden">
+        <Menu>
+          <Menu.Button>
+            <FaBars />
+          </Menu.Button>
+          <Menu.Items className="absolute bg-red-500 z-10
+           top-16 flex flex-col space-y-3 py-5 justify-center items-center left-0 w-full mx-auto">
+            <Menu.Item>{({ active }) => <Link to="/" className="hover:bg-red-400 w-full flex justify-center" >Home</Link>}</Menu.Item>
+            <Menu.Item>{({ active }) => <Link to="/about-me" className="hover:bg-red-400 w-full flex justify-center" >about me</Link>}</Menu.Item>
+            <Menu.Item>{({ active }) => <Link to="/my-project" className="hover:bg-red-400 w-full flex justify-center" >my project</Link>}</Menu.Item>
+            <Menu.Item>{({ active }) => <Link to="/services" className="hover:bg-red-400 w-full flex justify-center" >services</Link>}</Menu.Item>
+          </Menu.Items>
+        </Menu>
+      </div>
+      <div className="hidden md:block">
+        <NavBarMd />
       </div>
     </div>
-  )
+  );
 }
 
-export default Navbar
+export default Navbar;
